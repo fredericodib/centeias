@@ -1,0 +1,4 @@
+<%= link_to "Editar Subtópico", edit_subtopic_path(@subtopic) %>
+<%= link_to "Deletar Subtópico", subtopic_path(@subtopic), method: :delete, data: {confirm: "Are you sure?"} %>
+<h1><%= @subtopic.name %></h1>
+<h3><%= @subtopic.text %></h3>

@@ -1,0 +1,14 @@
+<%= link_to "Novo Tópico", new_topic_path %>
+<% @topics.each do |topic| %>
+	<h3><%= topic.name %></h3>
+	<%= link_to "Editar Tópico", edit_topic_path(topic) %>
+	<br>
+	<%= link_to "Deletar Tópico", topic_path(topic), method: :delete, data: {confirm: "Are you sure?"} %>
+	<br>
+	<%= link_to "Novo Subtópico", new_subtopic_path(topic.id) %>
+	<br>
+	<% topic.subtopics.each do |sub| %>
+		<h5><%= link_to sub.name, subtopic_path(sub.id) %></h5>
+	<% end %>
+<% end %>
+
