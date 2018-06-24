@@ -38,7 +38,8 @@ class SubtopicsController < ApplicationController
 	end
 
 	def search_subtopic
-		@subtopics = Subtopic.where('text LIKE :q', { q: 'm' }) # valid results
+		@word = params[:search]
+		@subtopics = Subtopic.where("text like ?", "%#{params[:search]}%") # valid results
 	end
 
 	private
