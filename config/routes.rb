@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :topics
   resources :subtopics, except: [:new]
   get 'subtopicts/new/:topic_id' => "subtopics#new", as: :new_subtopic
+  get 'search' => "subtopics#search_subtopic", as: :search
 
 end

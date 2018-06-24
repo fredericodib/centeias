@@ -37,6 +37,10 @@ class SubtopicsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def search_subtopic
+		@subtopics = Subtopic.where('text LIKE :q', { q: 'm' }) # valid results
+	end
+
 	private
 	def subtopic_params
 		params.require(:subtopic).permit(:name, :text, :topic_id)
