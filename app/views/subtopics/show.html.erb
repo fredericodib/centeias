@@ -1,4 +1,14 @@
-<%= link_to "Editar Subtópico", edit_subtopic_path(@subtopic) %>
-<%= link_to "Deletar Subtópico", subtopic_path(@subtopic), method: :delete, data: {confirm: "Are you sure?"} %>
+<div class="subtopic-icons">
+	<%= link_to edit_subtopic_path(@subtopic), class: "pencil-icon" do %>
+		<i class="fa fa-pencil"></i>
+	<% end %>
+	&nbsp;&nbsp;&nbsp;
+	<%= link_to subtopic_path(@subtopic), method: :delete, data: {confirm: "Are you sure?"}, class: "close-icon" do %>
+		<i class="fa fa-close"></i>
+	<% end %>
+</div>
 <h1><%= @subtopic.name %></h1>
-<h3><%= @subtopic.text %></h3>
+
+<div class="markdown-text">
+	<%= markdown(@subtopic.text) %>
+</div>

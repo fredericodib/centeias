@@ -1,8 +1,19 @@
 <%= form_for @subtopic do |f| %>
-	<%= f.label :name %>
-  	<%= f.text_field :name %>
+	<div class="form-field">
+		<%= f.label :name %>
+  		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<br>
   	<%= f.label :text %>
-  	<%= f.text_area :text %>
+  	<%= f.text_area :text, id: "markdown" %>
   	<%= f.hidden_field :topic_id, value: params[:topic_id] %>
-  	<%= f.submit "Create" %>
+  	<br>
+  	<%= f.submit "Criar", class: "btn btn-primary" %>
 <% end %>
+
+<script>
+var simplemde = new SimpleMDE({ 
+	element: document.getElementById("markdown"),
+	spellChecker: false
+});
+</script>

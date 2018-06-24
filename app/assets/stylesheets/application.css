@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+.content-margintop {
+	margin-top: 5em;
+	width: 60%;
+}
+
+@media (max-width: 700px) {
+	.content-margintop {
+		width: 100%;
+	}
+}
+
+.subtopic-link {
+	font-weight: bold !important;
+	color: white !important;
+}
+
+.markdown-text {
+	background-color: #eee;
+	border-radius: 10px;
+	border: 2px solid #aaa;
+	padding: 1em;
+	margin: 2em 0;
+}
+
+.subtopic-icons {
+	float: right;
+	font-size: 1.5em;
+}
+
+.close-icon {
+	color: #dc3545;
+}
+
+.pencil-icon {
+	color: #28a745;
+}

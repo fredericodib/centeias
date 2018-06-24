@@ -3,14 +3,97 @@
   <head>
     <title>Centeias</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
-  	<%= render "layouts/side_bar" %>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">Centeias Playbook</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="/topics/new">
+            <i class="fa fa-fw fa-plus"></i>
+            <span class="nav-link-text">Novo Tópico</span>
+          </a>
+        </li>
+        <% @topics.each do |topic| %>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#<%= topic.id %>" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-sitemap"></i>
+              <span class="nav-link-text"><%= topic.name %></span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="<%= topic.id %>">
+              <li>
+                <%= link_to "Novo Subtópico", new_subtopic_path(topic.id) %>
+              </li>
+              <% topic.subtopics.each do |sub| %>
+                <li>
+                  <%= link_to sub.name, subtopic_path(sub.id), class: "subtopic-link" %>
+                </li>
+              <% end %>
+               <li>
+                <%= link_to "Editar Tópico", edit_topic_path(topic) %>
+              </li>
+              <li>
+                <%= link_to "Deletar Tópico", topic_path(topic), method: :delete, data: {confirm: "Are you sure?"} %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= form_tag search_path, :method => :get do %>
+            <div class="form-inline my-2 my-lg-0 mr-lg-2">
+              <div class="input-group">
+                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search for..."%>
+                <span class="input-group-append">
+                  <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                      <i class="fa fa-search"></i>
+                  <% end %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+          
+        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
+              <i class="fa fa-fw fa-sign-out"></i>Logout
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to(new_user_session_path, class: "nav-link") do %>
+              <i class="fa fa-fw fa-sign-out"></i>Login
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="content-margintop">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>

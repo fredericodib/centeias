@@ -8,7 +8,7 @@ class SubtopicsController < ApplicationController
 	def create
 		@subtopic = Subtopic.new(subtopic_params)
 		if @subtopic.save
-			redirect_to root_path
+			redirect_to subtopic_path(@subtopic)
 		else
 			redirect_to new_subtopic_path
 		end

@@ -1,5 +1,10 @@
 <%= form_for @topic do |f| %>
-	<%= f.label :name %>
-  	<%= f.text_field :name %>
-  	<%= f.submit "Create" %>
+	<div class="form-field">
+		<%= f.label :name %>
+  		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<br>
+	<div class="form-field">
+		<%= f.submit "Editar", class: "btn btn-primary" %>
+	</div>
 <% end %>
