@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   root "pages#home_page"
   resources :topics
   resources :subtopics, except: [:new]
+
   get 'subtopicts/new/:topic_id' => "subtopics#new", as: :new_subtopic
   get 'search' => "subtopics#search_subtopic", as: :search
+
+  scope '/users' do
+    get '/new', to: 'users#new', as: :new_user
+    post '/create', to: 'users#create', as: :create_user
+  end
+
 
 end
