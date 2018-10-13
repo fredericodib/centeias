@@ -8,4 +8,17 @@ Rails.application.routes.draw do
   get 'subtopicts/new/:topic_id' => "subtopics#new", as: :new_subtopic
   get 'search' => "subtopics#search_subtopic", as: :search
 
+  # logged
+  #  login -> getting started
+  
+  # not logged
+  #  login -> login
+
+
+  #  root -> getting started
+  #  topic -> topic
+  #  subtopic -> subtopic
+
+  # wrong permition -> getting started
+  
 end
