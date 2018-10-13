@@ -16,5 +16,17 @@ Rails.application.routes.draw do
     patch '/update/:id', to: 'users#update', as: :update_user
   end
 
+  # logged
+  #  login -> getting started
+  
+  # not logged
+  #  login -> login
+
+
+  #  root -> getting started
+  #  topic -> topic
+  #  subtopic -> subtopic
+
+  # wrong permition -> getting started
 
 end
