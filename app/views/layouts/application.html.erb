@@ -10,19 +10,56 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/">Centeias Playbook</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">Playbook</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="/topics/new">
-            <i class="fa fa-fw fa-plus"></i>
-            <span class="nav-link-text">Novo Tópico</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Início">
+          <a class="nav-link" href="/">
+            <%= image_tag("logo.png", :alt => "logo", :class => "img-fluid") %>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="/search">
+            <i class="fa fa-fw fa-search"></i>
+            <span class="nav-link-text">Pesquisar</span>
+          </a>
+        </li>
+        <% if current_user %>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Sair">
+            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
+              <i class="fa fa-fw fa-sign-out"></i>
+              <span class="nav-link-text">Sair</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Entrar">
+            <%= link_to(new_user_session_path, class: "nav-link") do %>
+              <i class="fa fa-fw fa-sign-in"></i>
+              <span class="nav-link-text">Entrar</span>
+              <% end %>
+          </li>
+        <% end %>
+        <% if current_user %>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
+            <!-- TODO: change function call -->
+            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
+              <i class="fa fa-fw fa-user"></i>
+              <span class="nav-link-text">Perfil</span>
+            <% end %>
+          </li>
+        <% end %>
+        <% if current_user %>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <a class="nav-link" href="/topics/new">
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text">Novo Tópico</span>
+            </a>
+          </li>
+        <% end %>
         <% @topics.each do |topic| %>
            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#<%= topic.id %>" data-parent="#exampleAccordion">
@@ -55,35 +92,9 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <%= form_tag search_path, :method => :get do %>
-            <div class="form-inline my-2 my-lg-0 mr-lg-2">
-              <div class="input-group">
-                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search for..."%>
-                <span class="input-group-append">
-                  <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-                      <i class="fa fa-search"></i>
-                  <% end %>
-                </span>
-              </div>
-            </div>
-          <% end %>
-          
         </li>
-        <% if current_user %>
-          <li class="nav-item">
-            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
-              <i class="fa fa-fw fa-sign-out"></i>Logout
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to(new_user_session_path, class: "nav-link") do %>
-              <i class="fa fa-fw fa-sign-out"></i>Login
-            <% end %>
-          </li>
-        <% end %>
       </ul>
     </div>
   </nav>
