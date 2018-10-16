@@ -1,6 +1,36 @@
-<% @subtopics.each do |subtopic|%>
-	<h2><%= link_to subtopic.name, subtopic_path(subtopic) %></h2>
-	<div class="markdown-text">
-		<%= search_word(subtopic.text, @word) %>
+<%= form_tag search_path, :method => :get do %>
+	<div class="form-inline my-2 my-lg-0 mr-lg-2">
+		<div class="input-group">
+			<%= text_field_tag :search, nil, class: "form-control", placeholder: "Pesquise"%>
+			<span class="input-group-append">
+				<%= button_tag(type: "submit", class: "btn btn-primary") do %>
+					<i class="fa fa-search"></i>
+				<% end %>
+			</span>
+		</div>
 	</div>
+<% end %>
+
+<% unless @subtopics.nil? %>
+	<% if @subtopics.empty? %>
+		<br />
+		<h4> Nada foi achado </h4>
+	<% else %>
+		<% @subtopics.each do |subtopic|%>
+			<br />
+			<div class="card" style="width: 100%;">
+				<div class="card-body">
+					<h5 class="card-title">
+						<%= subtopic.name %>
+					</h5>
+					<p class="card-text">
+						<%= search_word(subtopic.text, @word) %>
+					</p>
+					<a href="#" class="card-link">
+						<%= link_to "Acessar", subtopic_path(subtopic) %>
+					</a>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 <% end %>
