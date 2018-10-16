@@ -20,16 +20,27 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 
+  # TODO: refactor
   def search_word(text, word)
+    if text.to_s.empty? or word.to_s.empty?
+      return nil
+    end
+
     text.downcase!
     word.downcase!
-    array_after_before = text.split("#{word}")
-    before = array_after_before[0]
-    after = array_after_before[1]
-    before = before.split(' ')
-    after = after.split(' ')
-    size = before.length
-    string = "...#{before[size-3]} #{before[size-2]} #{before[size-1]} #{word} #{after[0]} #{after[1]} #{after[2]}..."
-    return string
+
+
+    offset = text.index(word)
+
+    if offset.nil?
+       nil
+    end
+
+    a = [0, offset-40].max
+    b = [text.length, offset + word.length + 40].min
+
+    result = text[a..b]
+
+    return "...#{result}..."
   end
 end
