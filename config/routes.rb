@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   scope '/users' do
     get '/new', to: 'users#new', as: :new_user
+    get '/edit/:id', to: 'users#edit', as: :edit_user
     post '/create', to: 'users#create', as: :create_user
+    patch '/update/:id', to: 'users#update', as: :update_user
   end
 
   # logged
