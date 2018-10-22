@@ -1,5 +1,8 @@
 <h3><%= @topic.name %></h2>
 <hr />
+<br />
+<p><%= @topic.description %></p>
+<br />
 <div style="width: 100%;padding: 0px 20px 0px 20px;">
   <div class="row justify-content-end">
     <%= link_to new_subtopic_path(@topic.id), class: "col-1" do %>

@@ -5,6 +5,11 @@
 	</div>
 	<br>
 	<div class="form-field">
+		<%= f.label :description %>
+  		<%= f.text_field :description, class: "form-control" %>
+	</div>
+	<br>
+	<div class="form-field">
 		<%= f.submit "Create", class: "btn btn-primary" %>
 	</div>
 <% end %>
