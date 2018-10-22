@@ -1,0 +1,32 @@
+<h1 class="col-3">Tópicos</h1>
+<hr />
+<br />
+<%= link_to new_topic_path(), class: "col-1" do %>
+  <button style="" type="button" class="btn btn-primary">
+    <i class="fa fa-fw fa-plus"></i>
+    Novo Tópico
+  </button>
+<% end %>
+<br />
+<div style="width: 100%;">
+  <% @topics.each do |topic|%>
+    <br />
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= topic.name %>
+        </h5>
+        <a href="#" class="card-link">
+          <%= link_to "Acessar", topic_path(topic) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Editar", edit_topic_path(topic) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Deletar", topic_path(topic), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br />

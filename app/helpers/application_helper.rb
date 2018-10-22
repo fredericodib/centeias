@@ -43,4 +43,16 @@ module ApplicationHelper
 
     return "...#{result}..."
   end
+
+  def textShow(text)
+    if text.to_s.empty?
+      return nil
+    end
+
+    if text.length <= 300
+      return text[0..300]
+    end
+
+    return "#{text[0..300]}..."
+  end
 end

@@ -60,30 +60,12 @@
             </a>
           </li>
         <% end %>
-        <% @topics.each do |topic| %>
-           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#<%= topic.id %>" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-sitemap"></i>
-              <span class="nav-link-text"><%= topic.name %></span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="<%= topic.id %>">
-              <li>
-                <%= link_to "Novo Subtópico", new_subtopic_path(topic.id) %>
-              </li>
-              <% topic.subtopics.each do |sub| %>
-                <li>
-                  <%= link_to sub.name, subtopic_path(sub.id), class: "subtopic-link" %>
-                </li>
-              <% end %>
-               <li>
-                <%= link_to "Editar Tópico", edit_topic_path(topic) %>
-              </li>
-              <li>
-                <%= link_to "Deletar Tópico", topic_path(topic), method: :delete, data: {confirm: "Are you sure?"} %>
-              </li>
-            </ul>
-          </li>
-        <% end %>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="/topics">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Tópicos</span>
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

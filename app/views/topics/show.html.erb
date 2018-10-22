@@ -1,0 +1,39 @@
+<h3><%= @topic.name %></h2>
+<hr />
+<div style="width: 100%;padding: 0px 20px 0px 20px;">
+  <div class="row justify-content-end">
+    <%= link_to new_subtopic_path(@topic.id), class: "col-1" do %>
+      <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Novo Subtópico">
+        <i class="fa fa-fw fa-plus"></i>
+      </button>
+    <% end %>
+    <%= link_to edit_topic_path(@topic), class: "col-1"  do %>
+      <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar Tópico">
+        <i class="fa fa-fw fa-edit"></i>
+      </button>
+    <% end %>
+    <%= link_to topic_path(@topic), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"}, class: "col-1" do %>
+      <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar Tópico">
+        <i class="fa fa-fw fa-trash"></i>
+      </button>
+    <% end %>
+  </div>
+  <br />
+  <% @topic.subtopics.each do |subtopic|%>
+    <br />
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= subtopic.name %>
+        </h5>
+        <p class="card-text">
+          <%= textShow(subtopic.text) %>
+        </p>
+        <a href="#" class="card-link">
+          <%= link_to "Acessar", subtopic_path(subtopic) %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br />
