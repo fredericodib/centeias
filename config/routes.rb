@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'search' => "subtopics#search_subtopic", as: :search
 
   scope '/users' do
+    get '/show/:id', to: 'users#show', as: :show_user
     get '/new', to: 'users#new', as: :new_user
     get '/edit/:id', to: 'users#edit', as: :edit_user
     post '/create', to: 'users#create', as: :create_user

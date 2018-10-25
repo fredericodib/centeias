@@ -45,8 +45,7 @@
         <% end %>
         <% if current_user %>
           <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
-            <!-- TODO: change function call -->
-            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
+            <%= link_to(show_user_path(current_user), class: "nav-link") do %>
               <i class="fa fa-fw fa-user"></i>
               <span class="nav-link-text">Perfil</span>
             <% end %>

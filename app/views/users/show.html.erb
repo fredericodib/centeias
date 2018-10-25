@@ -1,0 +1,15 @@
+<div>
+	<label>Nome:</label>
+ 	<p><%= @user.name %></p>
+</div>
+<div>
+	<label>Email:</label>
+ 	<p><%= @user.name %></p>
+</div>
+<%= link_to(edit_user_path(@user.id)) do %>
+	<button style="" type="button" class="btn btn-primary">
+		Editar
+	</button>
+<% end %>
+
+
