@@ -1,11 +1,10 @@
-<div>
-	<label>Nome:</label>
- 	<p><%= @user.name %></p>
-</div>
-<div>
-	<label>Email:</label>
- 	<p><%= @user.name %></p>
-</div>
+<dl class="dl-horizontal">
+  <dt>Nome:</dt>
+  <dd><%= @user.name %></dd>
+  <dt>Email</dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
 <%= link_to(edit_user_path(@user.id)) do %>
 	<button style="" type="button" class="btn btn-primary">
 		Editar
