@@ -13,22 +13,22 @@
 # 	{
 # 		:name => "Documentação de Uso",
 # 		:description => "Processos que explicam como funciona o uso desse sistema",
-# 		:created_by => 1 # id of the user which created
+# 		:user_id => 1 # id of the user which created
 # 	},
 # 	{
 # 		:name => "Boletins",
 # 		:description => "Processos para a criação de boletins para a sala de situação da Centeias",
-# 		:created_by => 1 # id of the user which created
+# 		:user_id => 1 # id of the user which created
 # 	},
 # 	{
 # 		:name => "Banco de Dados",
 # 		:description => "Como criar e alimentar um repositório de bancos de dados de interesse à saúde para disponibilização para a comunidade da Faculdade de Ciências da Saúde da Universidade de Brasília.",
-# 		:created_by => 1 # id of the user which created
+# 		:user_id => 1 # id of the user which created
 # 	},
 # 	{
 # 		:name => "Notícias",
 # 		:description => "Desenvolver a atividade de detecção de notícias de eventos de interesse à saúde.",
-# 		:created_by => 1 # id of the user which created
+# 		:user_id => 1 # id of the user which created
 # 	}
 # ])
 
@@ -39,7 +39,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 1,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Estrutura",
@@ -47,7 +47,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 1,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Acesso",
@@ -55,7 +55,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 1,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Monitoramento de Eventos",
@@ -63,7 +63,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => ,"Epidemiológico"
@@ -71,7 +71,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Repositório",
@@ -79,7 +79,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 3,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Clipping",
@@ -87,7 +87,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 4,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Busca",
@@ -95,7 +95,7 @@
 # 			""/
 # 		),
 # 		:folder_id => 4,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	}
 # ])
 
@@ -106,7 +106,7 @@
 # 			""/
 # 		),
 # 		:article_id => 1,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Gerenciamento de Pastas",
@@ -114,7 +114,7 @@
 # 			""/
 # 		),
 # 		:article_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Gerenciamento de Artigos",
@@ -122,7 +122,7 @@
 # 			""/
 # 		),
 # 		:article_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Gerenciamento de Sub-Artigos",
@@ -130,7 +130,7 @@
 # 			""/
 # 		),
 # 		:article_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	},
 # 	{
 # 		:name => "Gerenciamento de Pastas",
@@ -138,6 +138,6 @@
 # 			""/
 # 		),
 # 		:article_id => 2,
-# 		:created_by => 1
+# 		:user_id => 1
 # 	}
 # ])
