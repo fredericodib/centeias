@@ -1,4 +1,4 @@
-<%= form_for @article do |f| %>
+<%= form_for @subarticle do |f| %>
 	<div class="form-field">
 		<%= f.label :name %>
 		<%= f.text_field :name, class: "form-control" %>
@@ -10,10 +10,10 @@
 	<br>
 	<%= f.label :text %>
 	<%= f.text_area :text, id: "markdown" %>
-	<%= f.hidden_field :folder_id, value: params[:folder_id] %>
 	<br>
-	<%= f.submit "Criar", class: "btn btn-primary" %>
+	<%= f.submit "Editar", class: "btn btn-primary" %>
 <% end %>
+
 
 <script>
 var simplemde = new SimpleMDE({

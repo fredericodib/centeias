@@ -1,0 +1,19 @@
+<div class="article-icons">
+	<%= link_to edit_subarticle_path(@subarticle), class: "pencil-icon" do %>
+		<i class="fa fa-pencil"></i>
+	<% end %>
+	&nbsp;&nbsp;&nbsp;
+	<%= link_to subarticle_path(@subarticle), method: :delete, data: {confirm: "Are you sure?"}, class: "close-icon" do %>
+		<i class="fa fa-close"></i>
+	<% end %>
+</div>
+<h1><%= @subarticle.name %></h1>
+
+<br>
+<b>Criado Por: </b><%= @user.name %>
+<b>Descrição: </b><%= @subarticle.description %>
+<br>
+
+<div class="markdown-text">
+	<%= markdown(@subarticle.text) %>
+</div>

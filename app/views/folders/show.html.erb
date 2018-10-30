@@ -25,17 +25,17 @@
 
 <div class="row justify-content-end">
   <%= link_to new_article_path(@folder.id), class: "col-1" do %>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Novo Subtópico">
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Novo Artigo">
       <i class="fa fa-fw fa-plus"></i>
     </button>
   <% end %>
   <%= link_to edit_folder_path(@folder), class: "col-1"  do %>
-    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar Tópico">
+    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar Pasta">
       <i class="fa fa-fw fa-edit"></i>
     </button>
   <% end %>
   <%= link_to folder_path(@folder), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"}, class: "col-1" do %>
-    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar Tópico">
+    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar Pasta">
       <i class="fa fa-fw fa-trash"></i>
     </button>
   <% end %>
