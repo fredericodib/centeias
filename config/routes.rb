@@ -25,8 +25,9 @@ Rails.application.routes.draw do
 
 
   #  root -> getting started
-  #  topic -> topic
-  #  subtopic -> subtopic
+  #  folder -> folder
+  #  article -> article
+  #  subarticle -> subarticle
 
   # wrong permition -> getting started
 
