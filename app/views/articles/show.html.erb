@@ -1,0 +1,14 @@
+<div class="subtopic-icons">
+	<%= link_to edit_article_path(@article), class: "pencil-icon" do %>
+		<i class="fa fa-pencil"></i>
+	<% end %>
+	&nbsp;&nbsp;&nbsp;
+	<%= link_to article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "close-icon" do %>
+		<i class="fa fa-close"></i>
+	<% end %>
+</div>
+<h1><%= @article.name %></h1>
+
+<div class="markdown-text">
+	<%= markdown(@article.text) %>
+</div>

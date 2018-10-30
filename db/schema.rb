@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181022202209) do
+ActiveRecord::Schema.define(version: 20181030135030) do
+
+  create_table "articles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.string "text"
+    t.integer "folder_id"
+    t.index ["folder_id"], name: "index_articles_on_folder_id"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+  end
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
@@ -19,6 +36,16 @@ ActiveRecord::Schema.define(version: 20181022202209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "sub_articles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "desciption"
+    t.string "text"
+    t.integer "article_id"
+    t.index ["article_id"], name: "index_sub_articles_on_article_id"
   end
 
   create_table "subtopics", force: :cascade do |t|

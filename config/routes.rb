@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "pages#home_page"
-  resources :topics
-  resources :subtopics, except: [:new]
+  resources :folders
+  resources :articles, except: [:new]
 
-  get 'subtopicts/new/:topic_id' => "subtopics#new", as: :new_subtopic
-  get 'search' => "subtopics#search_subtopic", as: :search
+  get 'articles/new/:folder_id' => "articles#new", as: :new_article
+  get 'search' => "articles#search_article", as: :search
 
   scope '/users' do
     get '/show/:id', to: 'users#show', as: :show_user
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # logged
   #  login -> getting started
-  
+
   # not logged
   #  login -> login
 

@@ -1,0 +1,2 @@
+class SubArticle < ApplicationRecord
+end

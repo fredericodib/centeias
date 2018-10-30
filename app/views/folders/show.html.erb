@@ -1,0 +1,42 @@
+<h3><%= @folder.name %></h2>
+<hr />
+<br />
+<p><%= @folder.description %></p>
+<br />
+<div style="width: 100%;padding: 0px 20px 0px 20px;">
+  <% @folder.articles.each do |article|%>
+    <br />
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= article.name %>
+        </h5>
+        <p class="card-text">
+          <%= textShow(article.text) %>
+        </p>
+        <a href="#" class="card-link">
+          <%= link_to "Acessar", article_path(article) %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br />
+
+<div class="row justify-content-end">
+  <%= link_to new_article_path(@folder.id), class: "col-1" do %>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Novo Subtópico">
+      <i class="fa fa-fw fa-plus"></i>
+    </button>
+  <% end %>
+  <%= link_to edit_folder_path(@folder), class: "col-1"  do %>
+    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar Tópico">
+      <i class="fa fa-fw fa-edit"></i>
+    </button>
+  <% end %>
+  <%= link_to folder_path(@folder), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"}, class: "col-1" do %>
+    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar Tópico">
+      <i class="fa fa-fw fa-trash"></i>
+    </button>
+  <% end %>
+</div>

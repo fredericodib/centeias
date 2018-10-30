@@ -11,23 +11,23 @@
 	</div>
 <% end %>
 
-<% unless @subtopics.nil? %>
-	<% if @subtopics.empty? %>
+<% unless @articles.nil? %>
+	<% if @articles.empty? %>
 		<br />
 		<h4> Nada foi achado </h4>
 	<% else %>
-		<% @subtopics.each do |subtopic|%>
+		<% @articles.each do |article|%>
 			<br />
 			<div class="card" style="width: 100%;">
 				<div class="card-body">
 					<h5 class="card-title">
-						<%= subtopic.name %>
+						<%= article.name %>
 					</h5>
 					<p class="card-text">
-						<%= search_word(subtopic.text, @word) %>
+						<%= search_word(article.text, @word) %>
 					</p>
 					<a href="#" class="card-link">
-						<%= link_to "Acessar", subtopic_path(subtopic) %>
+						<%= link_to "Acessar", article_path(article) %>
 					</a>
 				</div>
 			</div>
