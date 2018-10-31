@@ -1,0 +1,21 @@
+<h1>
+	<span> Usuário </span>&nbsp;
+	<%= link_to edit_user_path(@user.id) do %>
+		<i
+			class="fa fa-edit title-icon"
+			data-toggle="tooltip"
+			data-placement="top"
+			title="Editar"
+		></i>
+	<% end %>
+</h1>
+<hr />
+
+<dl class="dl-horizontal">
+  <dt>Nome:</dt>
+  <dd><%= @user.name %></dd>
+  <dt>Email</dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
+

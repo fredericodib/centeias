@@ -3,27 +3,20 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "pages#home_page"
-  resources :topics
-  resources :subtopics, except: [:new]
+  resources :folders
+  resources :articles, except: [:new]
+  resources :sub_articles, except: [:new]
 
-  get 'subtopicts/new/:topic_id' => "subtopics#new", as: :new_subtopic
-  get 'search' => "subtopics#search_subtopic", as: :search
+  get 'articles/new/:folder_id' => "articles#new", as: :new_article
+  get 'sub_articles/new/:article_id' => "sub_articles#new", as: :new_sub_article
+  get 'search' => "articles#search_article", as: :search
 
-  # logged
-  #  login -> getting started
-  
-  # not logged
-  #  login -> login
-
-
-  #  root -> getting started
-  #  topic -> topic
-  #  subtopic -> subtopic
-
-  # wrong permition -> getting started
-  
   scope '/users' do
+    get '/', to: 'users#index', as: :users
+    get '/show/:id', to: 'users#show', as: :show_user
     get '/new', to: 'users#new', as: :new_user
+    get '/edit/:id', to: 'users#edit', as: :edit_user
     post '/create', to: 'users#create', as: :create_user
+    patch '/update/:id', to: 'users#update', as: :update_user
   end
 end

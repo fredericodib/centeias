@@ -1,6 +1,0 @@
-<% @subtopics.each do |subtopic|%>
-	<h2><%= link_to subtopic.name, subtopic_path(subtopic) %></h2>
-	<div class="markdown-text">
-		<%= search_word(subtopic.text, @word) %>
-	</div>
-<% end %>

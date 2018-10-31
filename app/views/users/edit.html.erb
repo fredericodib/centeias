@@ -1,0 +1,20 @@
+<h1> Editar Usuário</h1>
+<hr />
+
+<%= form_for @user, url: update_user_path(@user), method: :patch do |f| %>
+	<div class="form-field">
+		<!-- TODO: change this to portuguese -->
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<br>
+	<div class="form-field">
+		<!-- TODO: change this to new password -->
+		<%= f.label :password %>
+		<%= f.password_field :password, class: "form-control" %>
+	</div>
+	<br>
+	<div class="form-field">
+		<%= f.submit "Salvar", class: "btn btn-primary" %>
+	</div>
+<% end %>

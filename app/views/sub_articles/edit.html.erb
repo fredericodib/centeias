@@ -1,0 +1,26 @@
+<h1> Editar Sub Artigo </h1>
+<hr />
+
+<%= form_for @sub_article do |f| %>
+	<div class="form-field">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<div class="form-field">
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+	<br>
+	<%= f.label :text %>
+	<%= f.text_area :text, id: "markdown" %>
+	<br>
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>
+
+
+<script>
+var simplemde = new SimpleMDE({
+	element: document.getElementById("markdown"),
+	spellChecker: false
+});
+</script>
