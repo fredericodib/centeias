@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'search' => "articles#search_article", as: :search
 
   scope '/users' do
+    get '/', to: 'users#index', as: :users
     get '/show/:id', to: 'users#show', as: :show_user
     get '/new', to: 'users#new', as: :new_user
     get '/edit/:id', to: 'users#edit', as: :edit_user

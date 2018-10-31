@@ -35,20 +35,24 @@
               <span class="nav-link-text">Sair</span>
             <% end %>
           </li>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
+            <%= link_to(show_user_path(current_user), class: "nav-link") do %>
+              <i class="fa fa-fw fa-user"></i>
+              <span class="nav-link-text">Perfil</span>
+            <% end %>
+          </li>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
+            <%= link_to(users_path(), class: "nav-link") do %>
+              <i class="fa fa-fw fa-users"></i>
+              <span class="nav-link-text">Usuários</span>
+            <% end %>
+          </li>
         <% else %>
           <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Entrar">
             <%= link_to(new_user_session_path, class: "nav-link") do %>
               <i class="fa fa-fw fa-sign-in"></i>
               <span class="nav-link-text">Entrar</span>
               <% end %>
-          </li>
-        <% end %>
-        <% if current_user %>
-          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
-            <%= link_to(show_user_path(current_user), class: "nav-link") do %>
-              <i class="fa fa-fw fa-user"></i>
-              <span class="nav-link-text">Perfil</span>
-            <% end %>
           </li>
         <% end %>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">

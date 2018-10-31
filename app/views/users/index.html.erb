@@ -1,0 +1,34 @@
+<h1>
+  <span> Usuários </span> &nbsp;
+  <%= link_to new_user_path() do %>
+    <i
+      class="fa fa-plus title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Adicionar"
+    ></i>
+  <% end %>
+</h1>
+
+<hr />
+
+<div style="width: 100%;">
+  <% @users.each do |user|%>
+    <br />
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= user.name %>
+        </h5>
+        <p class="card-text">
+          <%= user.email %>
+        </p>
+        <!--
+        <a href="#" class="card-link">
+          <%= link_to "Editar", edit_user_path(user) %>
+        </a>
+        -->
+      </div>
+    </div>
+  <% end %>
+</div>
