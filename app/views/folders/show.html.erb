@@ -1,8 +1,15 @@
 <h3><%= @folder.name %></h2>
 <hr />
-<br />
-<p><%= @folder.description %></p>
-<br />
+
+<br>
+<p>
+  <b>Criado Por: </b><%= @user.name %>
+</p>
+<p>
+  <b>Descrição: </b><%= @folder.description %>
+</p>
+<br>
+
 <div style="width: 100%;padding: 0px 20px 0px 20px;">
   <% @folder.articles.each do |article|%>
     <br />

@@ -11,6 +11,7 @@ class FoldersController < ApplicationController
 
 	def create
 		@folder = Folder.new(folder_params)
+		@folder.users_id = current_user.id
 		if @folder.save
 			redirect_to folders_path
 		else
@@ -20,6 +21,7 @@ class FoldersController < ApplicationController
 
 	def show
 		@folder = Folder.find(params[:id])
+		@user = User.find_by(id: @folder.users_id)
 	end
 
 	def edit
@@ -43,6 +45,6 @@ class FoldersController < ApplicationController
 
 	private
 	def folder_params
-		params.require(:folder).permit(:name, :description)
+		params.require(:folder).permit(:name, :description, :users_id)
 	end
 end

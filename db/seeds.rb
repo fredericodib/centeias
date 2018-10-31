@@ -100,7 +100,7 @@ User.new(
 # 	}
 # ])
 
-# Subarticle.new([
+# SubArticle.new([
 # 	{
 # 		:name => "Markdown",
 # 		:text => (

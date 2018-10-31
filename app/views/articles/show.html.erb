@@ -10,8 +10,12 @@
 <h1><%= @article.name %></h1>
 
 <br>
-<b>Criado Por: </b><%= @user.name %>
-<b>Descrição: </b><%= @article.description %>
+<p>
+  <b>Criado Por: </b><%= @user.name %>
+</p>
+<p>
+  <b>Descrição: </b><%= @article.description %>
+</p>
 <br>
 
 <div class="markdown-text">
@@ -20,18 +24,18 @@
 
 <br>
 <div style="width: 100%;padding: 0px 20px 0px 20px;">
-  <% @article.subarticles.each do |subarticle|%>
+  <% @article.sub_articles.each do |sub_article|%>
     <br />
     <div class="card" style="width: 100%;">
       <div class="card-body">
         <h5 class="card-title">
-          <%= subarticle.name %>
+          <%= sub_article.name %>
         </h5>
         <p class="card-text">
-          <%= textShow(subarticle.text) %>
+          <%= textShow(sub_article.text) %>
         </p>
         <a href="#" class="card-link">
-          <%= link_to "Acessar", subarticle_path(subarticle) %>
+          <%= link_to "Acessar", sub_article_path(sub_article) %>
         </a>
       </div>
     </div>

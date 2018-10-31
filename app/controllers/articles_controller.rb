@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article.users_id = current_user.id
 		if @article.save
 			redirect_to article_path(@article)
 		else
@@ -16,6 +17,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@user = User.find_by(id: @article.users_id)
 	end
 
 	def edit
@@ -48,6 +50,6 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:name, :text, :description, :folder_id)
+		params.require(:article).permit(:name, :text, :description, :folder_id, :users_id)
 	end
 end
