@@ -1,6 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# 1. run rails db:seed
+# 2. modify email and password
+
 #TODO: remove later
 User.new(
 	{ # Admin
@@ -10,135 +13,122 @@ User.new(
 	}
 ).save()
 
-# Folder.new([
-# 	{
-# 		:name => "Documentação de Uso",
-# 		:description => "Processos que explicam como funciona o uso desse sistema",
-# 		:user_id => 1 # id of the user which created
-# 	},
-# 	{
-# 		:name => "Boletins",
-# 		:description => "Processos para a criação de boletins para a sala de situação da Centeias",
-# 		:user_id => 1 # id of the user which created
-# 	},
-# 	{
-# 		:name => "Banco de Dados",
-# 		:description => "Como criar e alimentar um repositório de bancos de dados de interesse à saúde para disponibilização para a comunidade da Faculdade de Ciências da Saúde da Universidade de Brasília.",
-# 		:user_id => 1 # id of the user which created
-# 	},
-# 	{
-# 		:name => "Notícias",
-# 		:description => "Desenvolver a atividade de detecção de notícias de eventos de interesse à saúde.",
-# 		:user_id => 1 # id of the user which created
-# 	}
-# ])
+folders = [
+  [
+    "Documentação de Uso",
+    "Processos que explicam como funciona o uso desse sistema",
+    1
+  ],
+  [
+    "Boletins",
+    "Processos para a criação de boletins para a sala de situação da Centeias", 
+    1
+  ],
+  [
+    "Banco de Dados",
+    "Como criar e alimentar um repositório de bancos de dados de interesse à saúde para disponibilização para a comunidade da Faculdade de Ciências da Saúde da Universidade de Brasília.", 
+    1
+  ],
+  [
+    "Notícias",
+    "Desenvolver a atividade de detecção de notícias de eventos de interesse à saúde.", 
+    1
+  ]
+]
 
-# Article.new([
-# 	{
-# 		:name => "Introdução",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 1,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Estrutura",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 1,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Acesso",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 1,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Monitoramento de Eventos",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 2,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => ,"Epidemiológico"
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 2,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Repositório",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 3,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Clipping",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 4,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Busca",
-# 		:text => (
-# 			""/
-# 		),
-# 		:folder_id => 4,
-# 		:user_id => 1
-# 	}
-# ])
 
-# SubArticle.new([
-# 	{
-# 		:name => "Markdown",
-# 		:text => (
-# 			""/
-# 		),
-# 		:article_id => 1,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Gerenciamento de Pastas",
-# 		:text => (
-# 			""/
-# 		),
-# 		:article_id => 2,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Gerenciamento de Artigos",
-# 		:text => (
-# 			""/
-# 		),
-# 		:article_id => 2,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Gerenciamento de Sub-Artigos",
-# 		:text => (
-# 			""/
-# 		),
-# 		:article_id => 2,
-# 		:user_id => 1
-# 	},
-# 	{
-# 		:name => "Gerenciamento de Pastas",
-# 		:text => (
-# 			""/
-# 		),
-# 		:article_id => 2,
-# 		:user_id => 1
-# 	}
-# ])
+articles = [
+  [
+    "Introdução",
+    "",
+    1,
+    1
+  ],
+  [
+    "Estrutura",
+    "",
+    1,
+    1
+  ],
+  [
+    "Acesso",
+    "",
+    1,
+    1
+  ],
+  [
+    "Monitoramento de Eventos",
+    "",
+    2,
+    1
+  ],
+  [
+    "Epidemiológico",
+    "",
+    2,
+    1
+  ],
+  [
+    "Repositório",
+    "",
+    3,
+    1
+  ],
+  [
+    "Clipping",
+    "",
+    4,
+    1
+  ],
+  [
+    "Busca",
+    "",
+    4,
+    1
+  ]
+]
+
+sub_articles = [
+  [
+    "Markdown",
+    "",
+    1,
+    1
+  ],
+  [
+    "Gerenciamento de Pastas",
+    "",
+    2,
+    1
+  ],
+  [
+    "Gerenciamento de Artigos",
+    "",
+    2,
+    1
+  ],
+  [
+    "Gerenciamento de Sub-Artigos",
+    "",
+    2,
+    1
+  ],
+  [
+    "Gerenciamento de Pastas",
+    "",
+    2,
+    1
+  ]
+]
+
+folders.each do |name, description, users_id|
+  Folder.create( name: name, description: description, users_id: users_id ).save
+end
+
+articles.each do |name, text, folder_id, users_id|
+  Article.create( name: name, text: text, folder_id: folder_id, users_id: users_id ).save
+end
+
+sub_articles.each do |name, text, article_id, users_id|
+  SubArticle.create( name: name, text: text, article_id: article_id, users_id: users_id ).save
+end
