@@ -1,4 +1,6 @@
-<h3> Defina o novo nome e/ou senha.</h3>
+<h1> Editar Usuário</h1>
+<hr />
+
 <%= form_for @user, url: update_user_path(@user), method: :patch do |f| %>
 	<div class="form-field">
 		<!-- TODO: change this to portuguese -->
@@ -13,6 +15,6 @@
 	</div>
 	<br>
 	<div class="form-field">
-		<%= f.submit "Create", class: "btn btn-primary" %>
+		<%= f.submit "Salvar", class: "btn btn-primary" %>
 	</div>
 <% end %>

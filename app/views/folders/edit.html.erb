@@ -1,3 +1,6 @@
+<h1>Editar Pasta</h1>
+<hr />
+
 <%= form_for @folder do |f| %>
 	<div class="form-field">
 		<%= f.label :name %>
@@ -5,10 +8,10 @@
 	</div>
 	<div class="form-field">
 		<%= f.label :description %>
-  		<%= f.text_field :description, class: "form-control" %>
+  		<%= f.text_area :description, class: "form-control" %>
 	</div>
 	<br>
 	<div class="form-field">
-		<%= f.submit "Editar", class: "btn btn-primary" %>
+		<%= f.submit "Salvar", class: "btn btn-primary" %>
 	</div>
 <% end %>

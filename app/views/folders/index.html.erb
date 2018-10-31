@@ -1,8 +1,17 @@
-<h1 class="col-3">Pastas</h1>
-<hr />
-<br />
+<h1>
+  <span> Pastas </span> &nbsp;
+  <%= link_to new_folder_path() do %>
+    <i
+      class="fa fa-plus title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Adicionar"
+    ></i>
+  <% end %>
+</h1>
 
-<br />
+<hr />
+
 <div style="width: 100%;">
   <% @folders.each do |folder|%>
     <br />
@@ -27,10 +36,3 @@
     </div>
   <% end %>
 </div>
-<br />
-<%= link_to new_folder_path(), class: "col-1" do %>
-  <button style="" type="button" class="btn btn-primary">
-    <i class="fa fa-fw fa-plus"></i>
-    Nova Pasta
-  </button>
-<% end %>
