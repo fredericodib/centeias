@@ -46,10 +46,16 @@
           <%= article.name %>
         </h5>
         <p class="card-text">
-          <%= textShow(article.text) %>
+          <%= article.description %>
         </p>
         <a href="#" class="card-link">
           <%= link_to "Acessar", article_path(article) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Editar", edit_article_path(article) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Deletar", article_path(article), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} %>
         </a>
       </div>
     </div>

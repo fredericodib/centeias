@@ -8,10 +8,11 @@ class SubArticlesController < ApplicationController
 	def create
 		@sub_article = SubArticle.new(article_params)
 		@sub_article.users_id = current_user.id
+		byebug
 		if @sub_article.save
-			redirect_to subArticle_path(@sub_article)
+			redirect_to sub_article_path(@sub_article)
 		else
-			redirect_to new_subArticle_path(@sub_article.folder_id)
+			redirect_to new_sub_article_path(@sub_article.article_id)
 		end
 	end
 
@@ -27,9 +28,9 @@ class SubArticlesController < ApplicationController
 	def update
 		article = SubArticle.find(params[:id])
 		if article.update(article_params)
-			redirect_to subArticle_path(article)
+			redirect_to sub_article_path(article)
 		else
-			redirect_to edit_subArticle_path(article)
+			redirect_to edit_sub_article_path(article)
 		end
 	end
 
@@ -39,17 +40,17 @@ class SubArticlesController < ApplicationController
 		redirect_to root_path
 	end
 
-	def search_article
-		@subArticles = nil
-		@word = params[:search]
+	# def search_sub_article
+	# 	@subArticles = nil
+	# 	@word = params[:search]
 
-		unless @word.to_s.empty?
-			@subArticles = SubArticle.where("text like ?", "%#{params[:search]}%") # valid results
-		end
-	end
+	# 	unless @word.to_s.empty?
+	# 		@subArticles = SubArticle.where("text like ?", "%#{params[:search]}%") # valid results
+	# 	end
+	# end
 
 	private
 	def article_params
-		params.require(:article).permit(:name, :text, :description, :article_id, :users_id)
+		params.require(:sub_article).permit(:name, :text, :description, :article_id, :users_id)
 	end
 end
