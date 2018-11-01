@@ -8,12 +8,12 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        can :read, Folder
+        can :edit, Folder
         can :edit, Article
         can :edit, SubArticle
       end
     else
-      can :read, :all?
+      can :read, :all
     end
     # Define abilities for the passed in user here. For example:
     #
