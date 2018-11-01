@@ -3,6 +3,7 @@ module ApplicationHelper
     options = {
       filter_html:     true,
       hard_wrap:       true,
+      tables: true,
       link_attributes: { rel: 'nofollow', target: "_blank" },
       space_after_headers: true,
       fenced_code_blocks: true
@@ -11,6 +12,7 @@ module ApplicationHelper
     extensions = {
       autolink:           true,
       superscript:        true,
+      tables: true,
       disable_indented_code_blocks: true
     }
 
