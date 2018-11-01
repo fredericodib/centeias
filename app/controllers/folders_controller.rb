@@ -1,5 +1,7 @@
 class FoldersController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+	load_and_authorize_resource
+	skip_authorize_resource :only => [:index]
 
 	def index
 		@folders = Folder.all
