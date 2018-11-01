@@ -1,5 +1,6 @@
 class SubArticlesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+	load_and_authorize_resource
 
 	def new
 		@sub_article = SubArticle.new
