@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        can :read, Folder
+        can :edit, Folder
         can :edit, Article
         can :edit, SubArticle
       end
