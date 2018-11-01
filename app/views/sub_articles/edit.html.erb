@@ -3,15 +3,15 @@
 
 <%= form_for @sub_article do |f| %>
 	<div class="form-field">
-		<%= f.label :name %>
+		<%= f.label :name, "Nome" %>
 		<%= f.text_field :name, class: "form-control" %>
 	</div>
 	<div class="form-field">
-		<%= f.label :description %>
+		<%= f.label :description, "Descrição" %>
 		<%= f.text_area :description, class: "form-control" %>
 	</div>
 	<br>
-	<%= f.label :text %>
+	<%= f.label :text, "Conteúdo" %>
 	<%= f.text_area :text, id: "markdown" %>
 	<br>
 	<%= f.submit "Salvar", class: "btn btn-primary" %>
