@@ -9,7 +9,8 @@ User.new(
 	{ # Admin
 		:name => "Admin",
 		:email => "admin@centeias.com",
-		:password => "saladesituacao"
+		:password => "saladesituacao",
+		:admin_flag => 1
 	}
 ).save()
 
@@ -21,17 +22,17 @@ folders = [
   ],
   [
     "Boletins",
-    "Processos para a criação de boletins para a sala de situação da Centeias", 
+    "Processos para a criação de boletins para a sala de situação da Centeias",
     1
   ],
   [
     "Banco de Dados",
-    "Como criar e alimentar um repositório de bancos de dados de interesse à saúde para disponibilização para a comunidade da Faculdade de Ciências da Saúde da Universidade de Brasília.", 
+    "Como criar e alimentar um repositório de bancos de dados de interesse à saúde para disponibilização para a comunidade da Faculdade de Ciências da Saúde da Universidade de Brasília.",
     1
   ],
   [
     "Notícias",
-    "Desenvolver a atividade de detecção de notícias de eventos de interesse à saúde.", 
+    "Desenvolver a atividade de detecção de notícias de eventos de interesse à saúde.",
     1
   ]
 ]
