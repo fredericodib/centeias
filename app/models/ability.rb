@@ -3,13 +3,17 @@ class Ability
 
   def initialize(user)
     # byebug
-    if user.admin_flag
-      can :manage, :all
+    if user
+      if user.admin_flag
+        can :manage, :all
+      else
+        can :read, :all
+        can :read, Folder
+        can :edit, Article
+        can :edit, SubArticle
+      end
     else
       can :read, :all
-      can :read, Folder
-      can :edit, Article
-      can :edit, SubArticle
     end
 
     # Define abilities for the passed in user here. For example:
