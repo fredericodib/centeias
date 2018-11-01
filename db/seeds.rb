@@ -10,7 +10,7 @@ User.new(
 		:name => "Admin",
 		:email => "admin@centeias.com",
 		:password => "saladesituacao",
-    :admin_flag => 1
+		:admin_flag => 1
 	}
 ).save()
 
