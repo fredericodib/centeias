@@ -1,1 +1,0 @@
-# Gerenciamento de Sub-artigo

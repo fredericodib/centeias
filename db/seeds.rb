@@ -50,21 +50,21 @@ articles = [
   [
     "Introdução",
     "Explicação para que o sistema foi desenhado",
-    "",
+    "# Playbook\r\nO playbook é um sistema de informação para gerenciar o conhecimento de uma organização. De forma mais simples, é um sistema para colocar como fazer as coisas para que o próximo membro da organização não perca tempo tentando descobrir o que você já descobriu.\r\n\r\n## Cultura\r\nO sistema tem como objetivo construir uma cultura de pessoas ajudando as outras. No caso os membros da organização ajudando uns aos outros contribuindo com conhecimento.\r\nPara um uso eficiente seria ideal que quando for identificado uma falha, seja feito ou uma requisição de alteração ou você mesmo corrigir. Além disso, caso veja que certo conhecimento que vc tem não está presente no Playbook, adicione.\r\n\r\n## Markdown\r\nLinguagem de marcação para compor um documento. Bastante famosa por ser simples e rápida de ser aprendida, além de bem versátil.\r\n\r\nUtilizamos para edição dos artigos e sub-artigos um tipo de linguagem conhecido como markdown para formatação dos textos. Segue abaixo um sub-artigo resumindo como pode ser usado. \r\n\r\nAcessando a esse [link](https://www.markdownguide.org) também é possível encontrar o tutorial oficial, mas em inglês e acessando a [esse](github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) é possível achar outro resumo de como pode ser usado.",
     1,
     1
   ],
   [
     "Estrutura",
     "Explicação de como funciona a estrutura desse sistema",
-    "",
+    "# Estrutura\r\n\r\nA estrutura usada para organizar a informação da organização é composta de 3 níveis. Sendo esses: Pasta, Artigo e Sub-artigo.\r\n\r\n## Pasta\r\n\r\nPasta é o primeiro nível. Nele é definido o escopo principal, por exemplo, uma pasta de documentação do sistema.\r\n\r\n## Artigo\r\n\r\nArtigo é o segundo nível. Nele é definido processos, por exemplo, como deve ser feito os __clippings__.\r\n\r\n## Sub-Artigo\r\n\r\nSub-artigo é o terceiro nível. Nele é definido coisas mais específicas dos processos, por exemplo, uma explicação mais afunda de como usar alguma tecnologia específica para manipular o __clipping__.",
     1,
     1
   ],
   [
     "Acesso",
     "Quem e o que pode acessar",
-    "",
+    "# Acesso\r\n\r\nExistem permissões para cada tipo de usuário no sistema. Isso serve para controlar melhor o fluxo de informação.\r\n\r\n\r\n\r\n## Usuário Não Identificado\r\n\r\nComo um usuário não identificado, ou seja, não está logado, você está limitado apenas a ver os dados da plataforma e algumas outras coisas.\r\n\r\n+ Ver pastas\r\n+ Ver artigos\r\n+ Ver sub-artigos\r\n+ Criar e ver requisições de mudança\r\n\r\n\r\n\r\n## Usuário\r\n\r\nComo um usuário, isto é, logado, você ganha permissão quase total no sistema. Basicamente não pode deletar os dados.\r\n\r\n+ Criar, ver e editar pastas\r\n+ Criar, ver e editar artigos\r\n+ Criar, ver e editar sub-artigos\r\n+ Ver usuários\r\n+ Criar, ver e editar requisições de mudança\r\n\r\n## Admin\r\n\r\nComo um administrador, isto é, logado com permissão de administrador, você ganha permissão total no sistema.\r\n\r\n- Criar, ver, deletar e editar pastas\r\n- Criar, ver, deletar e editar artigos\r\n- Criar, ver, deletar e editar sub-artigos\r\n- Criar, ver, deletar e editar usuários\r\n- Criar, ver, deletar e editar requisições de mudança",
     1,
     1
   ],
@@ -105,36 +105,7 @@ articles = [
   ]
 ]
 
-sub_articles = [
-  [
-    "Markdown",
-    "Tutorial rápido",
-    "",
-    1,
-    1
-  ],
-  [
-    "Gerenciamento de Pastas",
-    "Padrões a seguir para criar, editar e deletar pastas",
-    "",
-    2,
-    1
-  ],
-  [
-    "Gerenciamento de Artigos",
-    "Padrões a seguir para criar, editar e deletar artigos",
-    "",
-    2,
-    1
-  ],
-  [
-    "Gerenciamento de Sub-Artigos",
-    "Padrões a seguir para criar, editar e deletar sub-artigos",
-    "",
-    2,
-    1
-  ]
-]
+sub_articles = []
 
 folders.each do |name, description, users_id|
   Folder.create( name: name, description: description, users_id: users_id ).save

@@ -6,4 +6,8 @@ O sistema tem como objetivo construir uma cultura de pessoas ajudando as outras.
 Para um uso eficiente seria ideal que quando for identificado uma falha, seja feito ou uma requisição de alteração ou você mesmo corrigir. Além disso, caso veja que certo conhecimento que vc tem não está presente no Playbook, adicione.
 
 ## Markdown
-Utilizamos para edição dos artigos e sub-artigos um tipo de linguagem conhecido como markdown para formatação dos textos. Segue abaixo um sub-artigo aprofundando melhor esse tópico.
+Linguagem de marcação para compor um documento. Bastante famosa por ser simples e rápida de ser aprendida, além de bem versátil.
+
+Utilizamos para edição dos artigos e sub-artigos um tipo de linguagem conhecido como markdown para formatação dos textos. Segue abaixo um sub-artigo resumindo como pode ser usado. 
+
+Acessando a esse [link](https://www.markdownguide.org) também é possível encontrar o tutorial oficial, mas em inglês e acessando a [esse](github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) é possível achar outro resumo de como pode ser usado.
