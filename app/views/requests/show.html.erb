@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resolvido:</strong>
+  <%= @request.done %>
+</p>
+
+<p>
+  <strong>Mensagem:</strong>
+  <%= @request.message %>
+</p>
+
+<%= link_to 'Editar', edit_request_path(@request) %> |
+<%= link_to 'Voltar', requests_path %>

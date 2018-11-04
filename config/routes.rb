@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root "pages#home_page"
   resources :folders
+  resources :requests
   resources :articles, except: [:new]
   resources :sub_articles, except: [:new]
 
