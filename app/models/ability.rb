@@ -11,6 +11,7 @@ class Ability
         can :edit, Folder
         can :edit, Article
         can :edit, SubArticle
+        can :edit, Request
       end
     else
       can :read, :all
