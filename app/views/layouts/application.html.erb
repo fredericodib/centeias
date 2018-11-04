@@ -41,10 +41,16 @@
               <span class="nav-link-text">Perfil</span>
             <% end %>
           </li>
-          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Perfil">
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Usuários">
             <%= link_to(users_path(), class: "nav-link") do %>
               <i class="fa fa-fw fa-users"></i>
               <span class="nav-link-text">Usuários</span>
+            <% end %>
+          </li>
+          <li class="nav-link" data-toggle="tooltip" data-placement="right" title="Requisições">
+            <%= link_to(requests_path(), class: "nav-link") do %>
+              <i class="fa fa-fw fa-envelope"></i>
+              <span class="nav-link-text">Requisições</span>
             <% end %>
           </li>
         <% else %>

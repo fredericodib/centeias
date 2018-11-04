@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <span> Requisição </span>
+  <%= link_to edit_request_path(@request) do %>
+    <i
+      class="fa fa-edit title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Editar"
+    ></i>
+  <% end %>
+  <%= link_to request_path(@request), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} do %>
+    <i
+      class="fa fa-trash title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Deletar"
+    ></i>
+  <% end %>
+</h1>
+<hr />
 
 <p>
   <strong>Resolvido:</strong>
-  <%= @request.done %>
+  <% if @request.done %>
+    <i class="fa fa-fw fa-check"></i>
+  <% else %>
+    <i class="fa fa-fw fa-times"></i>
+  <% end %>
 </p>
 
 <p>
-  <strong>Mensagem:</strong>
+  <strong>Mensagem:</strong><br>
   <%= @request.message %>
 </p>
 
-<%= link_to 'Editar', edit_request_path(@request) %> |
-<%= link_to 'Voltar', requests_path %>
+<br>
+<hr />
+<%= link_to requests_path do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>

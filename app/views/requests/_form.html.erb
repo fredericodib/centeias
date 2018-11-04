@@ -1,27 +1,14 @@
-<%= form_with(model: request, local: true) do |form| %>
-  <% if request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(request.errors.count, "erro") %> proibiu essa requisição de ser salva:</h2>
 
-      <ul>
-      <% request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for @request do |f| %>
+	<div class="field">
+    <%= f.label :done, "Resolvido" %>
+    <%= f.check_box :done, id: :request_done, class: "form-control" %>
+  </div>
+  <br>
   <div class="field">
-    <%= form.label :done, "Resolvido" %>
-    <%= form.text_field :done, id: :request_done %>
+    <%= f.label :message, "Mensagem" %>
+    <%= f.text_area :message, id: :request_message, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :message, "Mensagem" %>
-    <%= form.text_field :message, id: :request_message %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <br>
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
 <% end %>

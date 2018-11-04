@@ -1,6 +1,13 @@
 <h1>Editar Requisição</h1>
+<hr />
 
 <%= render 'form', request: @request %>
 
-<%= link_to 'Mostrar', @request %> |
-<%= link_to 'Voltar', requests_path %>
+<br>
+<hr />
+<%= link_to requests_path do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
