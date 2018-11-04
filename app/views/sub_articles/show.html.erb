@@ -31,3 +31,12 @@
 <div class="markdown-text">
 	<%= markdown(@sub_article.text) %>
 </div>
+
+<br>
+<hr />
+<%= link_to article_path(@sub_article.article_id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>

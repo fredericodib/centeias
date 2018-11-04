@@ -15,3 +15,12 @@
 		<%= f.submit "Salvar", class: "btn btn-primary" %>
 	</div>
 <% end %>
+
+<br>
+<hr />
+<%= link_to folder_path(@folder.id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
