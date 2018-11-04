@@ -1,11 +1,24 @@
 <h1>Editar Requisição</h1>
 <hr />
 
-<%= render 'form', request: @request %>
+<%= form_for @request do |f| %>
+	<div class="field">
+    <%= f.label :done, "Resolvido" %>
+    <%= f.check_box :done, id: :request_done, class: "form-control" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :message, "Mensagem" %>
+    <%= f.text_area :message, id: :request_message, class: "form-control" %>
+  </div>
+
+  <br>
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>
 
 <br>
 <hr />
-<%= link_to requests_path do %>
+<%= link_to request_path(@request.id) do %>
   <i
     class="fa fa-arrow-left title-icon"
   ></i>
