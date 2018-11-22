@@ -3,15 +3,24 @@
 
 <%= form_for @folder do |f| %>
 	<div class="form-field">
-		<%= f.label :name %>
+		<%= f.label :name, "Nome" %>
   		<%= f.text_field :name, class: "form-control" %>
 	</div>
 	<div class="form-field">
-		<%= f.label :description %>
+		<%= f.label :description, "Descrição" %>
   		<%= f.text_area :description, class: "form-control" %>
 	</div>
 	<br>
 	<div class="form-field">
 		<%= f.submit "Salvar", class: "btn btn-primary" %>
 	</div>
+<% end %>
+
+<br>
+<hr />
+<%= link_to folder_path(@folder.id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
 <% end %>

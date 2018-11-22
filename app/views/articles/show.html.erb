@@ -65,3 +65,19 @@
     </div>
   <% end %>
 </div>
+
+<br>
+<hr />
+<%= link_to folder_path(@article.folder_id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to new_request_path(@article.id, 0) do %>
+  <i
+    class="fa fa-envelope title-icon"
+  ></i>
+  <span> Requisitar Mudança </span>
+<% end %>

@@ -3,15 +3,15 @@
 
 <%= form_for @sub_article do |f| %>
 	<div class="form-field">
-		<%= f.label :name %>
+		<%= f.label :name, "Nome" %>
 		<%= f.text_field :name, class: "form-control" %>
 	</div>
 	<div class="form-field">
-		<%= f.label :description %>
+		<%= f.label :description, "Descrição" %>
 		<%= f.text_area :description, class: "form-control" %>
 	</div>
 	<br>
-	<%= f.label :text %>
+	<%= f.label :text, "Conteúdo" %>
 	<%= f.text_area :text, id: "markdown" %>
 	<%= f.hidden_field :article_id, value: params[:article_id] %>
 	<br>
@@ -24,3 +24,12 @@ var simplemde = new SimpleMDE({
 	spellChecker: false
 });
 </script>
+
+<br>
+<hr />
+<%= link_to article_path(params[:article_id]) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>

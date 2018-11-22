@@ -31,3 +31,19 @@
 <div class="markdown-text">
 	<%= markdown(@sub_article.text) %>
 </div>
+
+<br>
+<hr />
+<%= link_to article_path(@sub_article.article_id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to new_request_path(0, @sub_article.id) do %>
+  <i
+    class="fa fa-envelope title-icon"
+  ></i>
+  <span> Requisitar Mudança </span>
+<% end %>

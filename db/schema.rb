@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101004559) do
+ActiveRecord::Schema.define(version: 20181104133610) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20181101004559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.boolean "done"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "articles_id"
+    t.integer "sub_articles_id"
+    t.integer "users_id"
+    t.index ["articles_id"], name: "index_requests_on_articles_id"
+    t.index ["sub_articles_id"], name: "index_requests_on_sub_articles_id"
+    t.index ["users_id"], name: "index_requests_on_users_id"
   end
 
   create_table "sub_articles", force: :cascade do |t|
