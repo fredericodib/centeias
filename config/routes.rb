@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/show/:id', to: 'users#show', as: :show_user
     get '/new', to: 'users#new', as: :new_user
     get '/edit/:id', to: 'users#edit', as: :edit_user
+    get '/delete/:id', to: 'users#delete', as: :delete_user
     post '/create', to: 'users#create', as: :create_user
     patch '/update/:id', to: 'users#update', as: :update_user
   end
