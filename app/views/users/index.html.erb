@@ -23,11 +23,20 @@
         <p class="card-text">
           <%= user.email %>
         </p>
-        <!--
-        <a href="#" class="card-link">
-          <%= link_to "Editar", edit_user_path(user) %>
-        </a>
-        -->
+
+        <% if can? :edit, @user %>
+          <a href="#" class="card-link">
+            <%= link_to "Editar", edit_user_path(user) %>
+          </a>
+        <% end %>
+        <br>
+        <% if can? :delete, @user %>
+          <a href="#" class="card-link">
+            <%= link_to "Deletar", delete_user_path(user),  data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} %>
+          </a>
+        <% end %>
+
+
       </div>
     </div>
   <% end %>

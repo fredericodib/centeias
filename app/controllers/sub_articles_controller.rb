@@ -9,8 +9,8 @@ class SubArticlesController < ApplicationController
 	def create
 		@sub_article = SubArticle.new(article_params)
 		@sub_article.users_id = current_user.id
-		byebug
 		if @sub_article.save
+			OperationLog.create(user_id: current_user.id, sub_article_id: @sub_article.id, operation: 'create')
 			redirect_to sub_article_path(@sub_article)
 		else
 			redirect_to new_sub_article_path(@sub_article.article_id)
@@ -29,6 +29,7 @@ class SubArticlesController < ApplicationController
 	def update
 		article = SubArticle.find(params[:id])
 		if article.update(article_params)
+			OperationLog.create(user_id: current_user.id, sub_article_id: sub_article.id, operation: 'update')
 			redirect_to sub_article_path(article)
 		else
 			redirect_to edit_sub_article_path(article)
@@ -37,6 +38,7 @@ class SubArticlesController < ApplicationController
 
 	def destroy
 		@sub_article = SubArticle.find(params[:id])
+		OperationLog.create(user_id: current_user.id, sub_article_id: @sub_article.id, operation: 'delete')
 		@sub_article.delete
 		redirect_to root_path
 	end

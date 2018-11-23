@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181104133610) do
+ActiveRecord::Schema.define(version: 20181123184643) do
+
+  create_table "access_logs", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "access_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_access_logs_on_user_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,6 +39,22 @@ ActiveRecord::Schema.define(version: 20181104133610) do
     t.string "description"
     t.integer "users_id"
     t.index ["users_id"], name: "index_folders_on_users_id"
+  end
+
+  create_table "operation_logs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.integer "folder_id"
+    t.integer "sub_article_id"
+    t.integer "request_id"
+    t.string "operation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_operation_logs_on_article_id"
+    t.index ["folder_id"], name: "index_operation_logs_on_folder_id"
+    t.index ["request_id"], name: "index_operation_logs_on_request_id"
+    t.index ["sub_article_id"], name: "index_operation_logs_on_sub_article_id"
+    t.index ["user_id"], name: "index_operation_logs_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

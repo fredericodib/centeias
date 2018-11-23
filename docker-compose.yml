@@ -1,0 +1,4 @@
+playtest:
+  build: .
+  ports:
+    - '8000:3000'

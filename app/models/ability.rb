@@ -12,6 +12,8 @@ class Ability
         can :edit, Article
         can :edit, SubArticle
         can :edit, Request
+        can :edit, User, id: user.id
+        can :create, Request
       end
     else
       can :read, :all
