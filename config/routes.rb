@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'sub_articles/new/:article_id' => "sub_articles#new", as: :new_sub_article
   get 'requests/create/:articles_id/:sub_articles_id' => "requests#new", as: :new_request
   get 'search' => "articles#search_article", as: :search
+  get '/access', to: 'api#access'
+  get '/operations', to: 'api#operations'
 
   scope '/users' do
     get '/', to: 'users#index', as: :users
