@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 		@article = Article.new(article_params)
 		@article.users_id = current_user.id
 		if @article.save
+			OperationLog.create(user_id: current_user.id, article_id: @article.id, operation: 'create')
 			redirect_to article_path(@article)
 		else
 			redirect_to new_article_path(@article.folder_id)
@@ -28,6 +29,7 @@ class ArticlesController < ApplicationController
 	def update
 		article = Article.find(params[:id])
 		if article.update(article_params)
+			OperationLog.create(user_id: current_user.id, article_id: article.id, operation: 'update')
 			redirect_to article_path(article)
 		else
 			redirect_to edit_article_path(article)
@@ -36,6 +38,7 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find(params[:id])
+		OperationLog.create(user_id: current_user.id, article_id: @article.id, operation: 'delete')
 		@article.delete
 		redirect_to root_path
 	end

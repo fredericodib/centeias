@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   def index
     @requests = Request.all
   end
@@ -33,7 +33,9 @@ class RequestsController < ApplicationController
     @request.articles_id = articles_id
     @request.sub_articles_id = sub_articles_id
 
+
     if @request.save
+      OperationLog.create(user_id: current_user.id, request_id: @request.id, operation: 'create')
       if @request.articles_id
         redirect_to article_path(articles_id)
       elsif @request.sub_articles_id
