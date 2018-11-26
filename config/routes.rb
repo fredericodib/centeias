@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users. except[]
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "pages#home_page"
@@ -12,12 +14,15 @@ Rails.application.routes.draw do
   get 'sub_articles/new/:article_id' => "sub_articles#new", as: :new_sub_article
   get 'requests/create/:articles_id/:sub_articles_id' => "requests#new", as: :new_request
   get 'search' => "articles#search_article", as: :search
+  get '/access', to: 'api#access'
+  get '/operations', to: 'api#operations'
 
   scope '/users' do
     get '/', to: 'users#index', as: :users
     get '/show/:id', to: 'users#show', as: :show_user
     get '/new', to: 'users#new', as: :new_user
     get '/edit/:id', to: 'users#edit', as: :edit_user
+    get '/delete/:id', to: 'users#delete', as: :delete_user
     post '/create', to: 'users#create', as: :create_user
     patch '/update/:id', to: 'users#update', as: :update_user
   end

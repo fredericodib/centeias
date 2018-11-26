@@ -1,3 +1,16 @@
+class MarkdownRenderer < Redcarpet::Render::HTML
+
+  # Add possibility to set size
+  def image(link, title, alt_text)
+    if title =~ /=(\d+)x(\d+)/
+      %(<img src="#{link}" width="#{$1}" height="#{$2}" alt="#{alt_text}>")
+    else
+      %(<img src="#{link}" title="#{title}" alt="#{alt_text}" width="100%" height="100%" >)
+    end
+  end
+
+end
+
 module ApplicationHelper
 	def markdown(text)
     options = {
@@ -16,13 +29,12 @@ module ApplicationHelper
       disable_indented_code_blocks: true
     }
 
-    renderer = Redcarpet::Render::HTML.new(options)
+    renderer = MarkdownRenderer.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
     markdown.render(text).html_safe
   end
 
-  # TODO: refactor
   def search_word(text, word)
     if text.to_s.empty? or word.to_s.empty?
       return nil
@@ -30,7 +42,6 @@ module ApplicationHelper
 
     text.downcase!
     word.downcase!
-
 
     offset = text.index(word)
 

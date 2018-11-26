@@ -15,6 +15,8 @@ class FoldersController < ApplicationController
 		@folder = Folder.new(folder_params)
 		@folder.users_id = current_user.id
 		if @folder.save
+			# byebug
+			OperationLog.create(user_id: current_user.id, folder_id: @folder.id, operation: 'create')
 			redirect_to folders_path
 		else
 			redirect_to new_folder_path
@@ -33,6 +35,7 @@ class FoldersController < ApplicationController
 	def update
 		folder = Folder.find(params[:id])
 		if folder.update(folder_params)
+			OperationLog.create(user_id: current_user.id, folder_id: folder.id, operation: 'update')
 			redirect_to root_path
 		else
 			redirect_to edit_folder_path(folder)
@@ -41,6 +44,7 @@ class FoldersController < ApplicationController
 
 	def destroy
 		@folder = Folder.find(params[:id])
+		OperationLog.create(user_id: current_user.id, folder_id: @folder.id, operation: 'delete')
 		@folder.destroy
 		redirect_to root_path
 	end
