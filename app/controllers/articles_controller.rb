@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 	load_and_authorize_resource
+	skip_authorize_resource :only => [:search_article]
 
 	def new
 		@article = Article.new
@@ -54,6 +55,6 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:name, :text, :description, :folder_id, :users_id)
+		params.require(:article).permit(:name, :text, :description, :folder_id)
 	end
 end

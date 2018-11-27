@@ -1,11 +1,6 @@
 <h1>Nova Requisição</h1>
 
 <%= form_for @request do |f| %>
-	<div class="field">
-    <%= f.label :done, "Resolvido" %>
-    <%= f.check_box :done, id: :request_done, class: "form-control" %>
-  </div>
-  <br>
   <div class="field">
     <%= f.label :message, "Mensagem" %>
     <%= f.text_area :message, id: :request_message, class: "form-control" %>
