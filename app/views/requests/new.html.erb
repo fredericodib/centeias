@@ -1,0 +1,39 @@
+<h1>Nova Requisição</h1>
+
+<%= form_for @request do |f| %>
+  <div class="field">
+    <%= f.label :message, "Mensagem" %>
+    <%= f.text_area :message, id: :request_message, class: "form-control" %>
+  </div>
+
+	<%= f.hidden_field :articles_id, value: params[:articles_id] %>
+  <%= f.hidden_field :sub_articles_id, value: params[:sub_articles_id] %>
+
+  <br>
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>
+
+<br>
+<hr />
+<%= link_to requests_path do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Requisições </span>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<% if params[:articles_id] %>
+  <%= link_to article_path(params[:articles_id]) do %>
+    <i
+      class="fa fa-arrow-left title-icon"
+    ></i>
+    <span> Artigo </span>
+  <% end %>
+<% elsif params[:sub_articles_id] %>
+  <%= link_to sub_articles_path(params[:sub_articles_id]) do %>
+    <i
+      class="fa fa-arrow-left title-icon"
+    ></i>
+    <span> Sub Artigo </span>
+  <% end %>
+<% end %>

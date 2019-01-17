@@ -1,0 +1,38 @@
+<h1>
+  <span> Pastas </span> &nbsp;
+  <%= link_to new_folder_path() do %>
+    <i
+      class="fa fa-plus title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Adicionar"
+    ></i>
+  <% end %>
+</h1>
+
+<hr />
+
+<div style="width: 100%;">
+  <% @folders.each do |folder|%>
+    <br />
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= folder.name %>
+        </h5>
+        <p class="card-text">
+          <%= folder.description %>
+        </p>
+        <a href="#" class="card-link">
+          <%= link_to "Acessar", folder_path(folder) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Editar", edit_folder_path(folder) %>
+        </a> &nbsp;
+        <a href="#" class="card-link">
+          <%= link_to "Deletar", folder_path(folder), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :topics_bar
-
-  
-  private
-  def topics_bar
-  	@topics = Topic.all
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => 'Você não é autorizado a realizar esta ação.'
   end
 end

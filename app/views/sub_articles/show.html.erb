@@ -1,0 +1,49 @@
+<h1>
+  <span> Sub Artigo: </span>
+  <%= @sub_article.name %>&nbsp;
+  <%= link_to edit_sub_article_path(@sub_article) do %>
+    <i
+      class="fa fa-edit title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Editar"
+    ></i>
+  <% end %>
+  <%= link_to sub_article_path(@sub_article), method: :delete, data: {confirm: "Essa operação é irreversível, tem certeza que deseja deletar?"} do %>
+    <i
+      class="fa fa-trash title-icon"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Deletar"
+    ></i>
+  <% end %>
+</h1>
+<hr />
+
+<p>
+  <b>Criado Por: </b><%= @user.name %>
+</p>
+<p>
+  <b>Descrição: </b><%= @sub_article.description %>
+</p>
+<br>
+
+<div class="markdown-text">
+	<%= markdown(@sub_article.text) %>
+</div>
+
+<br>
+<hr />
+<%= link_to article_path(@sub_article.article_id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to new_request_path(0, @sub_article.id) do %>
+  <i
+    class="fa fa-envelope title-icon"
+  ></i>
+  <span> Requisitar Mudança </span>
+<% end %>

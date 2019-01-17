@@ -1,0 +1,35 @@
+<h1> Editar Artigo </h1>
+<hr />
+
+<%= form_for @article do |f| %>
+	<div class="form-field">
+		<%= f.label :name, "Nome" %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<div class="form-field">
+		<%= f.label :description, "Descrição" %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+	<br>
+	<%= f.label :text, "Conteúdo" %>
+	<%= f.text_area :text, id: "markdown" %>
+	<br>
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>
+
+
+<script>
+var simplemde = new SimpleMDE({
+	element: document.getElementById("markdown"),
+	spellChecker: false
+});
+</script>
+
+<br>
+<hr />
+<%= link_to article_path(@article.id) do %>
+  <i
+    class="fa fa-arrow-left title-icon"
+  ></i>
+  <span> Voltar </span>
+<% end %>
